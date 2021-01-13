@@ -1,4 +1,6 @@
 import { Component } from "react";
+import { connect } from "react-redux";
+import { addContact } from "../../redux/actions";
 import s from "./ContactForm.module.css";
 
 class ContactForm extends Component {
@@ -57,4 +59,7 @@ class ContactForm extends Component {
   }
 }
 
-export default ContactForm;
+const mapDispatchToProps = (dispatch) => ({
+  onAdd: (obj) => dispatch(addContact(obj)),
+});
+export default connect(null, mapDispatchToProps)(ContactForm);
